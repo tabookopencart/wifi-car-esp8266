@@ -58,12 +58,44 @@ class AccelerometerControl : AppCompatActivity(), SensorEventListener {
         val axisX = p0.values[0]
         val axisY = p0.values[1]
 
-        val isUpOrientation: Boolean = ((axisX > -3) && (axisX < 3) && (axisY < -3))
-        val isDownOrientation: Boolean = ((axisX > -3) && (axisX < 3) && (axisY > 3))
-        val isRightOrientation: Boolean = ((axisY > -3) && (axisY < 3) && (axisX < -3))
-        val isLeftOrientation: Boolean = ((axisY > -3) && (axisY < 3) && (axisX > 3))
+        val isUpLeftOrientation: Boolean = ((axisX > 2.6) && (axisY < -1.5))
+        val isUpRightOrientation: Boolean = ((axisX < -3) && (axisY < -1.5))
+        val isDownLeftOrientation: Boolean = ((axisX > 2.6) && (axisY > 3))
+        val isDownRightOrientation: Boolean = ((axisX < -3) && (axisY > 3))
+        val isUpOrientation: Boolean = ((axisX > -2) && (axisX < 2) && (axisY < -1.5))
+        val isDownOrientation: Boolean = ((axisX > -2) && (axisX < 2) && (axisY > 3))
+        val isRightOrientation: Boolean = ((axisY > -1.5) && (axisY < 3) && (axisX < -3))
+        val isLeftOrientation: Boolean = ((axisY > -1.5) && (axisY < 3) && (axisX > 3))
 
         when {
+            isUpLeftOrientation -> {
+                carConnector.moveForwardLeft()
+                arrow_up.setBackgroundResource(R.drawable.arrow_up_pressed)
+                arrow_down.setBackgroundResource(R.drawable.arrow_down)
+                arrow_right.setBackgroundResource(R.drawable.arrow_right)
+                arrow_left.setBackgroundResource(R.drawable.arrow_left_pressed)
+            }
+            isUpRightOrientation -> {
+                carConnector.moveForwardRight()
+                arrow_up.setBackgroundResource(R.drawable.arrow_up_pressed)
+                arrow_down.setBackgroundResource(R.drawable.arrow_down)
+                arrow_right.setBackgroundResource(R.drawable.arrow_right_pressed)
+                arrow_left.setBackgroundResource(R.drawable.arrow_left)
+            }
+            isDownLeftOrientation -> {
+                carConnector.moveBackwardLeft()
+                arrow_up.setBackgroundResource(R.drawable.arrow_up)
+                arrow_down.setBackgroundResource(R.drawable.arrow_down_pressed)
+                arrow_right.setBackgroundResource(R.drawable.arrow_right)
+                arrow_left.setBackgroundResource(R.drawable.arrow_left_pressed)
+            }
+            isDownRightOrientation -> {
+                carConnector.moveBackwardRight()
+                arrow_up.setBackgroundResource(R.drawable.arrow_up)
+                arrow_down.setBackgroundResource(R.drawable.arrow_down_pressed)
+                arrow_right.setBackgroundResource(R.drawable.arrow_right_pressed)
+                arrow_left.setBackgroundResource(R.drawable.arrow_left)
+            }
             isUpOrientation -> {
                 carConnector.moveForward()
                 arrow_up.setBackgroundResource(R.drawable.arrow_up_pressed)

@@ -25,6 +25,11 @@ class Preferences(ctx: Context) {
     fun getTurnRightValue(): String = getSharedPreferencesValue(Constant.TURN_RIGHT_STORAGE)
     fun getTurnLeftValue(): String = getSharedPreferencesValue(Constant.TURN_LEFT_STORAGE)
 
+    fun getMoveForwardLeftValue(): String = getMoveForwardValue() + getTurnLeftValue()
+    fun getMoveForwardRightValue(): String = getMoveForwardValue() + getTurnRightValue()
+    fun getMoveBackwardLeftValue(): String = getMoveBackwardValue() + getTurnLeftValue()
+    fun getMoveBackwardRightValue(): String = getMoveBackwardValue() + getTurnRightValue()
+
     fun getActionOneValue(): String = getSharedPreferencesValue(Constant.ACTION_1_STORAGE)
     fun getActionTwoValue(): String = getSharedPreferencesValue(Constant.ACTION_2_STORAGE)
     fun getActionThreeValue(): String = getSharedPreferencesValue(Constant.ACTION_3_STORAGE)

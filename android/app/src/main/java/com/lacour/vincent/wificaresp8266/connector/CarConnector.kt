@@ -45,6 +45,11 @@ class CarConnector(context: Context) {
     fun turnLeft() = sendMoveRequest(preferences.getTurnLeftValue())
     fun turnRight() = sendMoveRequest(preferences.getTurnRightValue())
 
+    fun moveForwardLeft() = sendMoveRequest(preferences.getMoveForwardLeftValue())
+    fun moveForwardRight() = sendMoveRequest(preferences.getMoveForwardRightValue())
+    fun moveBackwardLeft() = sendMoveRequest(preferences.getMoveBackwardLeftValue())
+    fun moveBackwardRight() = sendMoveRequest(preferences.getMoveBackwardRightValue())
+
     fun actionOne() = sendActionRequest(preferences.getActionOneValue())
     fun actionTwo() = sendActionRequest(preferences.getActionTwoValue())
     fun actionThree() = sendActionRequest(preferences.getActionThreeValue())
